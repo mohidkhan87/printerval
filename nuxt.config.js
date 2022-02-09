@@ -18,11 +18,16 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/scss/main.scss'
+    '~/assets/scss/main.scss',
+    'vue-slick-carousel/dist/vue-slick-carousel.css',
+    'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    // When use element-ui as plugin, remember setting ssr: true
+    { src: '~/plugins/global-components.js', ssr: true },
+    { src: '~/plugins/vue-slick-carousel.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
