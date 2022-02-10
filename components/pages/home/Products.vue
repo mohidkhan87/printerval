@@ -1,9 +1,11 @@
 <template>
-  <div class="m-1">
-    <img :src="product.image" alt="">
+  <div class="product_effect rounded transition-all duration-300 ease-linear cursor-pointer mx-1 mt-5 overflow-hidden">
+    <div class="overflow-hidden">
+      <img :src="product.image" alt="">
+    </div>
     <div class="p-2">
       <div class="flex w-full h-5  overflow-hidden">
-        <h2 class="text-sm font-medium w-full">{{ product.title }}</h2>
+        <h2 class="text-sm font-medium">{{ product.title }}</h2>
         <span class="mr-1">...</span>
       </div>
       <p class="font-light text-sm">By {{ product.brand }}</p>
@@ -27,6 +29,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.product_effect {
+  img {
+     transition: all .3s ease-in-out;
+  }
+  &:hover {
+    box-shadow: 0 0 1px 3px #aa97d6;
+     img {
+      transform: scale(1.5)
+    }
+  }
+}
 </style>

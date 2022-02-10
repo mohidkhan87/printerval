@@ -1,8 +1,8 @@
 <template>
   <div class="bg-footer-purple py-10">
     <Container>
-      <div class="grid grid-cols-6 sm:px-5 px-0">
-        <div class="col-span-2 pt-3 pr-16">
+      <div class="grid md:grid-cols-6 grid-cols-1 gap-y-7 sm:px-5 px-0">
+        <div class="lg:col-span-2 md:col-span-6 pt-3 lg:pr-16">
           <img id="logo-img" src="https://printerval.com/printerval/assets/images/logo.svg" alt="logo" class="lg:w-40 w-32">
           <p class="text-gray-300 mt-4 font-light text-sm">Printerval.com is your one-stop online shop for today's most daring, exciting and edgy fashion apparel. Our affordable collections are all about redefining trends, design excellence and exceptional quality to satisfy the needs of every aspiring fashionista.</p>
           <p class="text-gray-300 my-4 font-light text-sm">Follow us:</p>
@@ -30,7 +30,7 @@
             </a>
           </div>
         </div>
-        <div class="col-span-2 ">
+        <div class="md:col-span-2 ">
           <h2 class="text-white">Information</h2>
           <p class="mt-3 text-sm text-white font-light"><span class="text-gray-300 font-normal">Email:</span> support@printerval.com</p>
           <div class="flex gap-2 mt-10">
@@ -43,7 +43,7 @@
           <img src="https://images.dmca.com/Badges/dmca-badge-w200-5x1-10.png?ID=005e124c-c682-4f1d-a564-1bc657921504" alt="" class="my-4">
           <img src="https://printerval.com/files/default/29-10-2021/positivessl-trust-seal-sm-124x321-617b7cf7b58a7.png" alt="">
         </div>
-        <div class="pr-2">
+        <div class="lg:col-span-1 md:col-span-2 lg:pr-2 lg:pl-0 md:pl-12">
           <h2 class="text-white">Company</h2>
           <ul class="flex flex-col gap-4 text-white text-sm font-light mt-8">
             <li>About Us</li>
@@ -54,9 +54,9 @@
             <li>Blog</li>
             <li>Sell your art</li>
           </ul>
-          <button class="btn btn-success rounded capitalize font-normal mt-6">Open a support ticket</button>
+          <button class="sm:btn-md btn-sm btn-success rounded capitalize lg:text-sm text-xs font-normal mt-6">Open a support ticket</button>
         </div>
-        <div>
+        <div class="lg:col-span-1 md:col-span-2 lg:pl-0 md:pl-12">
           <h2 class="text-white">Get Help</h2>
           <ul class="flex flex-col gap-4 text-white text-sm font-light mt-8">
             <li>FAQ</li>
