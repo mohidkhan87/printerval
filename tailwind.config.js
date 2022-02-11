@@ -6,7 +6,10 @@ module.exports = {
       colors: {
         'footer-purple': '#07002F',
         skin: '#FAEBD7',
-        'light-purple': '#aa97d6'
+        'light-purple': '#aa97d6',
+        'light-blue': '#9FD8EB',
+        'light-pink': '#EB91A6',
+        'lightest-brown': '#DABAA1'
       },
       boxShadow: {
         rounded: '0 0 15px .5px rgba(0, 0, 0, 0.08)'

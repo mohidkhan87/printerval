@@ -5,7 +5,6 @@
       <!-- Poster -->
       <div class="container mx-auto px-4 2xl:px-10 my-4">
         <div class="poster bg-poster bg-cover bg-center"></div>
-        <!-- <img src="https://uscdn.printerval.com/unsafe/0x840/storage.googleapis.com/printerval-us/2022/01/10/hpny-1444x420-usa-37c1e4d28910282da9d29e0491eba755.jpg" alt="poster"> -->
       </div>
 
       <!-- Categories and Products -->
@@ -37,7 +36,7 @@
             Trending Topics
           </h1>
           <div class="relative">
-            <VueSlickCarousel ref="carousel1" v-bind="topicOptions">
+            <VueSlickCarousel ref="trendingTopicsSlider" v-bind="topicOptions">
               <div v-for="(topic, index) in trendingTopics" :key="index">
                 <div
                   class="group w-max flex items-center bg-gray-100 sm:py-3 py-2 px-4 rounded-md sm:mx-1.5 mx-1"
@@ -56,7 +55,7 @@
             </VueSlickCarousel>
             <button
               class="absolute border sm:flex hidden justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
-              @click="$refs.carousel1.next()"
+              @click="$refs.trendingTopicsSlider.next()"
             >
               <!-- <font-awesome-icon :icon="['fas', 'long-arrow-alt-right']" /> -->
               <div class="flex transform -rotate-90">
@@ -70,7 +69,7 @@
             </button>
             <button
               class="absolute border sm:flex hidden justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
-              @click="$refs.carousel1.prev()"
+              @click="$refs.trendingTopicsSlider.prev()"
             >
               <!-- <font-awesome-icon :icon="['fas', 'long-arrow-alt-left']" /> -->
               <div class="flex transform rotate-90">
@@ -91,14 +90,18 @@
             Trending Products
           </h1>
           <div class="relative mb-5">
-            <VueSlickCarousel ref="carousel2" v-bind="productsOptions">
-              <div v-for="(product, idx) in trendingProducts" :key="idx">
+            <VueSlickCarousel ref="trendingProducts" v-bind="productsOptions">
+              <div
+                v-for="(product, idx) in trendingProducts"
+                :key="idx"
+                class="mt-5"
+              >
                 <Products :product="product" />
               </div>
             </VueSlickCarousel>
             <button
               class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md"
-              @click="$refs.carousel2.next()"
+              @click="$refs.trendingProducts.next()"
             >
               <div class="flex transform -rotate-90">
                 <span
@@ -111,7 +114,7 @@
             </button>
             <button
               class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
-              @click="$refs.carousel2.prev()"
+              @click="$refs.trendingProducts.prev()"
             >
               <div class="flex transform rotate-90">
                 <span
@@ -131,14 +134,18 @@
             Featured Products
           </h1>
           <div class="relative mb-5">
-            <VueSlickCarousel ref="carousel3" v-bind="productsOptions">
-              <div v-for="(product, idx) in trendingProducts" :key="idx">
+            <VueSlickCarousel ref="featuredProducts" v-bind="productsOptions">
+              <div
+                v-for="(product, idx) in trendingProducts"
+                :key="idx"
+                class="mt-5"
+              >
                 <Products :product="product" />
               </div>
             </VueSlickCarousel>
             <button
               class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md"
-              @click="$refs.carousel3.next()"
+              @click="$refs.featuredProducts.next()"
             >
               <div class="flex transform -rotate-90">
                 <span
@@ -151,7 +158,7 @@
             </button>
             <button
               class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
-              @click="$refs.carousel3.prev()"
+              @click="$refs.featuredProducts.prev()"
             >
               <div class="flex transform rotate-90">
                 <span
@@ -171,14 +178,18 @@
             New Arrivals
           </h1>
           <div class="relative mb-5">
-            <VueSlickCarousel ref="carousel4" v-bind="productsOptions">
-              <div v-for="(product, idx) in trendingProducts" :key="idx">
+            <VueSlickCarousel ref="newArrivals" v-bind="productsOptions">
+              <div
+                v-for="(product, idx) in trendingProducts"
+                :key="idx"
+                class="mt-5"
+              >
                 <Products :product="product" />
               </div>
             </VueSlickCarousel>
             <button
               class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md"
-              @click="$refs.carousel4.next()"
+              @click="$refs.newArrivals.next()"
             >
               <div class="flex transform -rotate-90">
                 <span
@@ -191,7 +202,7 @@
             </button>
             <button
               class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
-              @click="$refs.carousel4.prev()"
+              @click="$refs.newArrivals.prev()"
             >
               <div class="flex transform rotate-90">
                 <span
@@ -210,8 +221,8 @@
           <h1 class="text-gray-600 sm:text-2xl text-xl font-medium mt-5 mb-2">
             Top Sale OFF
           </h1>
-          <div class="w-full overflow-scroll">
-            <div class="main-sale-products flex items-center mt-4">
+          <div class="w-full overflow-x-scroll scrollbar-none">
+            <div class="sale-products-box flex items-center mt-4">
               <div
                 v-for="(product, index) in topSale"
                 :key="index"
@@ -228,6 +239,7 @@
               <div
                 v-for="(product, ind) in topSale[viewTopSale].products"
                 :key="ind"
+                class="mt-5"
               >
                 <Products :product="product" />
               </div>
@@ -1107,10 +1119,9 @@ export default {
     transform: scale(1.25);
   }
 }
-.main-sale-products {
+.sale-products-box {
   width: max-content;
   .sale-products {
-    width: max-content;
     border-bottom: 3px solid rgb(240, 240, 240);
     transition: all 0.3s ease-in-out;
     &:hover {
@@ -1123,6 +1134,15 @@ export default {
     &:hover {
       border-bottom: 3px solid #ff5724;
     }
+  }
+}
+
+// For hide scrollbar
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 </style>
