@@ -163,7 +163,9 @@
                     for="cart-drawer"
                     class="fixed top-0 left-0 h-full w-full drawer-overlay z-10"
                   ></label>
-                  <div class="bg-white fixed top-0 right-0 h-full w-80 p-4">
+                  <div
+                    class="bg-white fixed top-0 right-0 h-full w-80 overflow-y-scroll scrollbar-none p-4"
+                  >
                     <div
                       class="flex justify-between items-center border-b pb-2"
                     >
@@ -190,7 +192,11 @@
                         </div>
                       </label>
                     </div>
-                    <div class="flex items-center gap-2 py-3 border-b">
+                    <div
+                      v-for="i in 2"
+                      :key="i"
+                      class="flex items-center gap-2 py-3 border-b"
+                    >
                       <img
                         src="https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2022/01/19/il-1140xn-b4ed5fb0d9896dcb1c8e32ae4f3d685b.webp"
                         alt="cart-item"
@@ -275,10 +281,10 @@
               </p>
               <ul
                 v-if="list.subMenu"
-                class="child-list absolute top-full left-0 w-full bg-white shadow-rounded p-4 rounded z-10"
+                class="child-list absolute top-full left-0 w-full bg-white shadow-rounded font-light p-4 rounded z-10"
               >
-                <li v-for="(innerList, idx) in list.subMenu" :key="idx">
-                  {{ innerList.name }}
+                <li v-for="(subList, idx) in list.subMenu" :key="idx">
+                  {{ subList.name }}
                 </li>
               </ul>
             </li>
@@ -344,11 +350,6 @@
                     ></span>
                   </div>
                 </div>
-                <!-- <ul v-if="list.subMenu" class="child-list absolute top-full left-0 w-full bg-white shadow-rounded p-4 rounded z-10">
-                  <li v-for="(innerList, idx) in list.subMenu" :key="idx">
-                    {{innerList.name}}
-                  </li>
-                </ul> -->
               </li>
 
               <li>
@@ -398,7 +399,7 @@
     </Container>
     <!-- Bottom Menu -->
     <div
-      class="md:hidden grid grid-cols-5 bg-white fixed bottom-0 left-0 w-full shadow-rounded py-3 z-20"
+      class="md:hidden grid grid-cols-5 bg-white fixed bottom-0 left-0 w-full shadow-rounded pt-3 pb-2 z-20"
     >
       <div
         v-for="(nav, index) in bottomMenu"
@@ -410,7 +411,11 @@
           :class="nav.name === 'Products' && 'transform -rotate-90'"
           class="sm:h-7 h-5"
         />
-        <p class="mt-1.5 sm:text-sm text-xs uppercase">{{ nav.name }}</p>
+        <p
+          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+        >
+          {{ nav.name }}
+        </p>
       </div>
     </div>
   </div>
@@ -424,111 +429,7 @@ export default {
     Products,
   },
   data: () => ({
-    menu: [
-      {
-        id: 1,
-        name: 'Home',
-        subMenu: null,
-      },
-      {
-        id: 2,
-        name: 'Clothing',
-        subMenu: [
-          {
-            id: 1,
-            name: 'Clothing Categories',
-          },
-        ],
-      },
-      {
-        id: 3,
-        name: 'Accessories',
-        subMenu: [
-          {
-            id: 1,
-            name: 'Accessories Categories',
-          },
-        ],
-      },
-      {
-        id: 4,
-        name: 'Home & Living',
-        subMenu: [
-          {
-            id: 1,
-            name: 'Home & Living Categories',
-          },
-        ],
-      },
-      {
-        id: 5,
-        name: 'Topics',
-        subMenu: null,
-      },
-      {
-        id: 6,
-        name: 'Shop',
-        subMenu: null,
-      },
-    ],
     isSearching: false,
-    mobileMenu: false,
-    mobileSubMenu: null,
-    // Bootom menu
-    bottomMenu: [
-      {
-        id: 1,
-        name: 'Home',
-        image: 'home.png',
-      },
-      {
-        id: 2,
-        name: 'My Cart',
-        image: 'cart.png',
-      },
-      {
-        id: 3,
-        name: 'Products',
-        image: 'product.png',
-      },
-      {
-        id: 4,
-        name: 'Wishlist',
-        image: 'heart.png',
-      },
-      {
-        id: 5,
-        name: 'Search',
-        image: 'search.png',
-      },
-    ],
-    regions: [
-      {
-        id: 1,
-        name: 'US and Others',
-        image: 'https://printerval.com/modules/localization/images/us.svg',
-      },
-      {
-        id: 2,
-        name: 'Canada',
-        image: 'https://printerval.com/modules/localization/images/ca.svg',
-      },
-      {
-        id: 3,
-        name: 'Australia',
-        image: 'https://printerval.com/modules/localization/images/au.svg',
-      },
-      {
-        id: 4,
-        name: 'United Kingdom',
-        image: 'https://printerval.com/modules/localization/images/uk.svg',
-      },
-      {
-        id: 5,
-        name: 'Italiano',
-        image: 'https://printerval.com/modules/localization/images/it.svg',
-      },
-    ],
     // Search results
     popularProducts: [
       {
@@ -674,6 +575,118 @@ export default {
         discount: null,
         image:
           'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2022/01/19/il-1140xn-b4ed5fb0d9896dcb1c8e32ae4f3d685b.webp',
+      },
+    ],
+    regions: [
+      {
+        id: 1,
+        name: 'US and Others',
+        image: 'https://printerval.com/modules/localization/images/us.svg',
+      },
+      {
+        id: 2,
+        name: 'Canada',
+        image: 'https://printerval.com/modules/localization/images/ca.svg',
+      },
+      {
+        id: 3,
+        name: 'Australia',
+        image: 'https://printerval.com/modules/localization/images/au.svg',
+      },
+      {
+        id: 4,
+        name: 'United Kingdom',
+        image: 'https://printerval.com/modules/localization/images/uk.svg',
+      },
+      {
+        id: 5,
+        name: 'Italiano',
+        image: 'https://printerval.com/modules/localization/images/it.svg',
+      },
+    ],
+    menu: [
+      {
+        id: 1,
+        name: 'Home',
+        subMenu: null,
+      },
+      {
+        id: 2,
+        name: 'Clothing',
+        subMenu: [
+          {
+            id: 1,
+            name: 'All Clothing',
+          },
+          { id: 2, name: 'T-Shirts' },
+          { id: 3, name: 'Custom T-Shirts' },
+          { id: 4, name: 'Hoodies' },
+          { id: 5, name: 'Polo shirts' },
+          { id: 6, name: 'Cloaks' },
+          { id: 7, name: 'Tank Tops' },
+          { id: 8, name: 'Sweatshirts' },
+          { id: 9, name: 'Long Sleeves' },
+        ],
+      },
+      {
+        id: 3,
+        name: 'Accessories',
+        subMenu: [
+          {
+            id: 1,
+            name: 'Accessories Categories',
+          },
+        ],
+      },
+      {
+        id: 4,
+        name: 'Home & Living',
+        subMenu: [
+          {
+            id: 1,
+            name: 'Home & Living Categories',
+          },
+        ],
+      },
+      {
+        id: 5,
+        name: 'Topics',
+        subMenu: null,
+      },
+      {
+        id: 6,
+        name: 'Shop',
+        subMenu: null,
+      },
+    ],
+    mobileMenu: false,
+    mobileSubMenu: null,
+    // Bootom menu
+    bottomMenu: [
+      {
+        id: 1,
+        name: 'Home',
+        image: 'home.png',
+      },
+      {
+        id: 2,
+        name: 'My Cart',
+        image: 'cart.png',
+      },
+      {
+        id: 3,
+        name: 'Products',
+        image: 'product.png',
+      },
+      {
+        id: 4,
+        name: 'Wishlist',
+        image: 'heart.png',
+      },
+      {
+        id: 5,
+        name: 'Search',
+        image: 'search.png',
       },
     ],
   }),
