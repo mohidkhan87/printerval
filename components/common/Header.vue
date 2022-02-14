@@ -1,7 +1,7 @@
 <template>
   <div class="border-b border-opacity-80 lg:pb-0 pb-5">
-    <div class="sm:block hidden bg-gray-100 text-center text-sm font-light p-3">
-      <span class="text-error">Valentine Day's Sale!</span> Save up to 45 % OFF
+    <div class="sm:block hidden bg-primary text-center text-sm p-3">
+      <span class="text-orange">Valentine Day's Sale!</span> Save up to 45 % OFF
       sitewide. Gifts for any interest. Designed and sold by artists.
     </div>
     <Container>
@@ -25,10 +25,10 @@
           <div
             :class="
               isSearching
-                ? 'search_box z-50 bg-white'
-                : 'z-auto lg:bg-gray-100 bg-white '
+                ? 'shadow-purple-outline z-50 bg-white'
+                : 'z-auto lg:shadow-none shadow-gray-outline lg:bg-primary bg-white '
             "
-            class="relative hidden md:flex items-center rounded-full lg:border-none border-2 transition-all duration-300 ease-in-out w-full pr-4"
+            class="relative hidden md:flex items-center rounded-full lg:border-none transition-all duration-300 ease-in-out w-full pr-4"
             @click="isSearching = true"
           >
             <input
@@ -51,7 +51,7 @@
                   Trending searches
                 </h2>
                 <div
-                  class="flex items-start gap-2 px-2 py-1 my-3 hover:bg-gray-100 cursor-pointer"
+                  class="flex items-start gap-2 px-2 py-1 my-3 hover:bg-primary cursor-pointer"
                 >
                   <img
                     src="https://printerval.com/images/trend.svg"
@@ -61,7 +61,7 @@
                   <span class="font-extralight leading-5">family</span>
                 </div>
                 <div
-                  class="flex items-start gap-2 px-2 py-1 my-3 hover:bg-gray-100 cursor-pointer"
+                  class="flex items-start gap-2 px-2 py-1 my-3 hover:bg-primary cursor-pointer"
                 >
                   <img
                     src="https://printerval.com/images/trend.svg"
@@ -273,25 +273,66 @@
         <!-- Menu -->
         <nav class="relative lg:block hidden mt-4">
           <ul class="flex items-center">
-            <li v-for="(list, index) in menu" :key="index">
+            <li v-for="(list, index) in menu" :key="index" class="relative">
               <p
-                class="main py-2.5 px-4 transition-all duration-300 ease-in-out cursor-pointer hover:text-error"
+                class="main py-2.5 px-4 transition-all duration-300 ease-in-out font-medium text-dark-purple cursor-pointer hover:text-orange"
               >
                 {{ list.name }}
               </p>
-              <ul
+              <!-- sub-menu -->
+              <div
                 v-if="list.subMenu"
-                class="child-list absolute top-full left-0 w-full bg-white shadow-rounded font-light p-4 rounded z-10"
+                class="child-list absolute top-full left-1/2 transform -translate-x-1/2 w-52 pt-4"
               >
-                <li v-for="(subList, idx) in list.subMenu" :key="idx">
-                  {{ subList.name }}
-                </li>
-              </ul>
+                <div class="shadow-rounded rounded">
+                  <ul class="bg-white rounded font-medium z-10">
+                    <li
+                      v-for="(subList, idx) in list.subMenu"
+                      :key="idx"
+                      class="relative flex items-center hover:bg-lighter-gray transition-all duration-200 ease-linear justify-between z-10"
+                    >
+                      <p
+                        class="transition-all duration-200 ease-linear px-4 py-2.5 cursor-pointer text-dark-purple hover:text-orange w-full"
+                      >
+                        {{ subList.name }}
+                      </p>
+                      <!-- arrow icon -->
+                      <div
+                        v-if="subList.subMenu"
+                        class="flex transform -rotate-90 flex-shrink-0 mr-4"
+                      >
+                        <span
+                          class="h-px sm:w-2 w-1.5 bg-black transform rotate-45 sm:-mr-px"
+                        ></span>
+                        <span
+                          class="h-px sm:w-2 w-1.5 bg-black transform -rotate-45 -ml-0.5"
+                        ></span>
+                      </div>
+
+                      <ul
+                        v-if="subList.subMenu"
+                        class="absolute top-0 left-full bg-white shadow-rounded rounded w-52"
+                      >
+                        <li
+                          v-for="(innerSubMenu, id) in subList.subMenu"
+                          :key="id"
+                          class="hover:bg-lighter-gray transition-all duration-200 ease-linear px-4 py-2.5 cursor-pointer text-dark-purple hover:text-orange"
+                        >
+                          {{ innerSubMenu.name }}
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div
+                    class="absolute top-2.5 left-1/2 transform -translate-x-1/2 rotate-45 h-3.5 w-3.5 bg-white -mt-px"
+                  ></div>
+                </div>
+              </div>
             </li>
 
             <li>
               <p
-                class="main text-red-700 py-2.5 px-4 transition-all duration-300 ease-in-out cursor-pointer"
+                class="main text-maroon font-medium py-2.5 px-4 transition-all duration-300 ease-in-out cursor-pointer"
               >
                 Top Sale
               </p>
@@ -303,7 +344,11 @@
         <div
           v-if="mobileMenu"
           class="lg:hidden block fixed top-0 left-0 h-full w-full bg-black bg-opacity-40 transition-all duration-200 ease-in-out z-30"
-          @click=";(mobileMenu = false), (mobileSubMenu = null)"
+          @click="
+            ;(mobileMenu = false),
+              (mobileSubMenu = null),
+              (mobileInnerSubMenu = null)
+          "
         >
           <div
             class="fixed left-80 transform top-7 text-white flex justify-center items-center cursor-pointer"
@@ -316,11 +361,12 @@
         </div>
         <!--  -->
         <nav>
+          <!-- main menu -->
           <div
             :class="mobileMenu ? 'translate-x-0' : '-translate-x-full'"
             class="mobile-nav lg:hidden block fixed top-0 left-0 h-full bg-white transform transition-all duration-200 ease-in-out z-40"
           >
-            <div class="bg-gray-100 p-4">
+            <div class="bg-primary p-4">
               <img
                 src="https://printerval.com/printerval/assets/images/logo.svg"
                 alt="logo"
@@ -331,13 +377,14 @@
               <li v-for="(list, index) in menu" :key="index">
                 <div
                   class="group flex items-center justify-between border-t cursor-pointer"
-                  @click="openSubMenu(list)"
+                  @click="openSubMenu(index)"
                 >
                   <p
                     class="py-2 px-4 transition-all duration-300 ease-in-out cursor-pointer group-hover:text-error"
                   >
                     {{ list.name }}
                   </p>
+                  <!-- arrow icon -->
                   <div
                     v-if="list.subMenu"
                     class="flex sm:ml-2 ml-1.5 mr-4 transform -rotate-90"
@@ -368,7 +415,7 @@
             class="mobile-nav lg:hidden block fixed top-0 left-0 h-full bg-white transform transition-all duration-300 ease-in-out z-50"
           >
             <div
-              class="flex items-center gap-2 bg-gray-100 p-4 cursor-pointer"
+              class="flex items-center gap-2 bg-primary p-4 cursor-pointer"
               @click="mobileSubMenu = null"
             >
               <div
@@ -381,43 +428,258 @@
                   class="h-px w-2.5 bg-black transform -rotate-45 -ml-0.5"
                 ></span>
               </div>
-              <h2 v-if="mobileSubMenu">{{ mobileSubMenu.name }}</h2>
+              <h2 v-if="mobileSubMenu">{{ menu[mobileSubMenu].name }}</h2>
             </div>
             <!-- selected sub-menu -->
-            <ul class="ml-4">
-              <li v-for="(main, idx) in menu" :key="idx">
-                <div v-if="main === mobileSubMenu">
-                  <p v-for="(child, id) in main.subMenu" :key="id" class="py-3">
-                    {{ child.name }}
-                  </p>
+            <ul v-if="mobileSubMenu">
+              <li
+                v-for="(child, id) in menu[mobileSubMenu].subMenu"
+                :key="id"
+                class="group py-3 px-4 border-t flex items-center cursor-pointer justify-between"
+                @click="openInnerSubMenu(id)"
+              >
+                <p
+                  class="group-hover:text-orange transition-all duration-200 ease-linear"
+                >
+                  {{ child.name }}
+                </p>
+                <!-- arrow icon -->
+                <div v-if="child.subMenu" class="flex transform -rotate-90">
+                  <span
+                    class="h-px w-2.5 bg-black transform rotate-45 -mr-px"
+                  ></span>
+                  <span
+                    class="h-px w-2.5 bg-black transform -rotate-45 -ml-0.5"
+                  ></span>
                 </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Inner sub-menu -->
+          <div
+            :class="mobileInnerSubMenu ? 'translate-x-0' : '-translate-x-full'"
+            class="mobile-nav lg:hidden block fixed top-0 left-0 h-full bg-white transform transition-all duration-300 ease-in-out z-50"
+          >
+            <div
+              class="flex items-center gap-2 bg-primary p-4 cursor-pointer"
+              @click="mobileInnerSubMenu = null"
+            >
+              <div
+                class="flex justify-center items-center sm:ml-2 ml-1.5 transform rotate-90 bg-white h-8 w-8 rounded-full"
+              >
+                <span
+                  class="h-px w-2.5 bg-black transform rotate-45 -mr-px"
+                ></span>
+                <span
+                  class="h-px w-2.5 bg-black transform -rotate-45 -ml-0.5"
+                ></span>
+              </div>
+              <h2 v-if="mobileInnerSubMenu">
+                {{ menu[mobileSubMenu].subMenu[mobileInnerSubMenu].name }}
+              </h2>
+            </div>
+            <!-- selected sub-menu -->
+            <ul v-if="mobileInnerSubMenu">
+              <li
+                v-for="(main, idx) in menu[mobileSubMenu].subMenu[
+                  mobileInnerSubMenu
+                ].subMenu"
+                :key="idx"
+                class="py-3 px-4 border-t hover:text-orange cursor-pointer transition-all duration-200 ease-linear"
+              >
+                {{ main.name }}
               </li>
             </ul>
           </div>
         </nav>
       </div>
     </Container>
+
     <!-- Bottom Menu -->
     <div
       class="md:hidden grid grid-cols-5 bg-white fixed bottom-0 left-0 w-full shadow-rounded pt-3 pb-2 z-20"
     >
-      <div
-        v-for="(nav, index) in bottomMenu"
-        :key="index"
-        class="flex flex-col items-center"
-      >
+      <div class="flex flex-col items-center">
+        <img src="@/assets/img/header/home.png" class="sm:h-7 h-5" />
+        <p
+          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+        >
+          Home
+        </p>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="@/assets/img/header/cart.png" class="sm:h-7 h-5" />
+        <p
+          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+        >
+          My Cart
+        </p>
+      </div>
+      <div class="flex flex-col items-center">
         <img
-          :src="require(`@/assets/img/header/${nav.image}`)"
-          :class="nav.name === 'Products' && 'transform -rotate-90'"
-          class="sm:h-7 h-5"
+          src="@/assets/img/header/product.png"
+          class="sm:h-7 h-5 transform -rotate-90"
         />
         <p
           class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
         >
-          {{ nav.name }}
+          Products
+        </p>
+      </div>
+      <div class="flex flex-col items-center">
+        <img src="@/assets/img/header/heart.png" class="sm:h-7 h-5" />
+        <p
+          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+        >
+          Wishlist
+        </p>
+      </div>
+      <div
+        class="flex flex-col items-center"
+        @click="openMobileSearch = !openMobileSearch"
+      >
+        <img src="@/assets/img/header/search.png" class="sm:h-7 h-5" />
+        <p
+          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+        >
+          Search
         </p>
       </div>
     </div>
+
+    <!-- Mobile search section -->
+    <transition name="fade">
+      <div
+        v-if="openMobileSearch"
+        class="md:hidden block fixed top-0 left-0 h-full w-full bg-white py-4 overflow-y-scroll scrollbar-none z-50"
+      >
+        <Container>
+          <div class="relative flex items-center gap-3 pb-3">
+            <div
+              :class="
+                isSearching ? 'shadow-purple-outline' : 'shadow-gray-outline'
+              "
+              class="flex items-center rounded-full transition-all duration-300 ease-in-out w-full pr-4"
+            >
+              <input
+                type="text"
+                placeholder="Search designs and products"
+                class="w-full bg-transparent outline-none py-2.5 px-4"
+                @focus="isSearching = true"
+                @blur="isSearching = false"
+              />
+              <img
+                src="@/assets/img/header/search.png"
+                alt="search"
+                class="w-6"
+              />
+            </div>
+            <!-- x icon -->
+            <div
+              class="flex-shrink-0 flex justify-center items-center cursor-pointer"
+              @click="openMobileSearch = !openMobileSearch"
+            >
+              <span
+                class="h-0.5 w-5 bg-gray-400 transform -rotate-45 -mr-2.5"
+              ></span>
+              <span
+                class="h-0.5 w-5 bg-gray-400 transform rotate-45 -ml-2.5"
+              ></span>
+            </div>
+            <!-- Search Results -->
+            <div
+              class="mobile_search_results absolute top-full left-0 w-full grid xl:grid-cols-5 grid-cols-1 bg-white rounded-lg py-4"
+            >
+              <div>
+                <h2 class="font-medium text-gray-600 leading-5">
+                  Trending searches
+                </h2>
+                <div class="flex items-center gap-x-8 gap-y-1 my-3 flex-wrap">
+                  <div
+                    class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
+                  >
+                    <img
+                      src="https://printerval.com/images/trend.svg"
+                      alt="result-icon"
+                      class="mt-0.5"
+                    />
+                    <span class="font-extralight leading-5">family</span>
+                  </div>
+                  <div
+                    class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
+                  >
+                    <img
+                      src="https://printerval.com/images/trend.svg"
+                      alt="result-icon"
+                      class="mt-0.5"
+                    />
+                    <span class="font-extralight leading-5"
+                      >matching family disney shirts</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
+                  >
+                    <img
+                      src="https://printerval.com/images/trend.svg"
+                      alt="result-icon"
+                      class="mt-0.5"
+                    />
+                    <span class="font-extralight leading-5"
+                      >matching family disney shirts</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
+                  >
+                    <img
+                      src="https://printerval.com/images/trend.svg"
+                      alt="result-icon"
+                      class="mt-0.5"
+                    />
+                    <span class="font-extralight leading-5">family</span>
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <h2 class="font-medium text-gray-600 mt-3 mb-5">
+                  Popular products
+                </h2>
+                <div
+                  class="grid grid-flow-col grid-rows-2 py-3 overflow-y-scroll scrollbar-none border-b"
+                >
+                  <div
+                    v-for="(product, index) in popularProducts"
+                    :key="index"
+                    class="w-40"
+                  >
+                    <Products :product="product" :is-searching="true" />
+                  </div>
+                </div>
+                <div class="flex gap-2 py-2.5">
+                  <button
+                    class="p-2 w-40 bg-light-blue rounded-sm text-white lg:text-base text-xs"
+                  >
+                    T-Shirts
+                  </button>
+                  <button
+                    class="p-2 w-40 bg-light-pink rounded-sm text-white lg:text-base text-xs"
+                  >
+                    Custom T-Shirts
+                  </button>
+                  <button
+                    class="p-2 w-40 bg-lightest-brown rounded-sm text-white lg:text-base text-xs"
+                  >
+                    Sweatshirts
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -430,6 +692,7 @@ export default {
   },
   data: () => ({
     isSearching: false,
+    openMobileSearch: false,
     // Search results
     popularProducts: [
       {
@@ -617,15 +880,23 @@ export default {
           {
             id: 1,
             name: 'All Clothing',
+            subMenu: null,
           },
-          { id: 2, name: 'T-Shirts' },
-          { id: 3, name: 'Custom T-Shirts' },
-          { id: 4, name: 'Hoodies' },
-          { id: 5, name: 'Polo shirts' },
-          { id: 6, name: 'Cloaks' },
-          { id: 7, name: 'Tank Tops' },
-          { id: 8, name: 'Sweatshirts' },
-          { id: 9, name: 'Long Sleeves' },
+          { id: 2, name: 'T-Shirts', subMenu: null },
+          { id: 3, name: 'Custom T-Shirts', subMenu: null },
+          {
+            id: 4,
+            name: 'Hoodies',
+            subMenu: [
+              { id: 1, name: 'Winter' },
+              { id: 2, name: 'Summer' },
+            ],
+          },
+          { id: 5, name: 'Polo shirts', subMenu: null },
+          { id: 6, name: 'Cloaks', subMenu: null },
+          { id: 7, name: 'Tank Tops', subMenu: null },
+          { id: 8, name: 'Sweatshirts', subMenu: null },
+          { id: 9, name: 'Long Sleeves', subMenu: null },
         ],
       },
       {
@@ -634,7 +905,7 @@ export default {
         subMenu: [
           {
             id: 1,
-            name: 'Accessories Categories',
+            name: 'All Accessories',
           },
         ],
       },
@@ -644,7 +915,7 @@ export default {
         subMenu: [
           {
             id: 1,
-            name: 'Home & Living Categories',
+            name: 'Home & Living',
           },
         ],
       },
@@ -659,41 +930,20 @@ export default {
         subMenu: null,
       },
     ],
+    // For Mobile menus
     mobileMenu: false,
     mobileSubMenu: null,
-    // Bootom menu
-    bottomMenu: [
-      {
-        id: 1,
-        name: 'Home',
-        image: 'home.png',
-      },
-      {
-        id: 2,
-        name: 'My Cart',
-        image: 'cart.png',
-      },
-      {
-        id: 3,
-        name: 'Products',
-        image: 'product.png',
-      },
-      {
-        id: 4,
-        name: 'Wishlist',
-        image: 'heart.png',
-      },
-      {
-        id: 5,
-        name: 'Search',
-        image: 'search.png',
-      },
-    ],
+    mobileInnerSubMenu: null,
   }),
   methods: {
-    openSubMenu(list) {
-      if (list.subMenu) {
-        this.mobileSubMenu = list
+    openSubMenu(index) {
+      if (this.menu[index].subMenu) {
+        this.mobileSubMenu = index
+      }
+    },
+    openInnerSubMenu(index) {
+      if (this.menu[this.mobileSubMenu].subMenu[index].subMenu) {
+        this.mobileInnerSubMenu = index
       }
     },
   },
@@ -717,34 +967,24 @@ export default {
 nav {
   ul {
     li {
-      p.main {
-        position: relative;
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 0;
-          height: 2px;
-          background-color: black;
-          transition: all 0.3s ease-in-out;
-        }
-        &:hover::after {
-          width: 70%;
-        }
-      }
       // Child List
       .child-list {
         display: none;
+        animation: slideUp 0.5s forwards;
+        ul {
+          li {
+            ul {
+              display: none;
+              animation: slideRight 0.5s forwards;
+            }
+            &:hover ul {
+              display: block;
+            }
+          }
+        }
       }
       &:hover .child-list {
         display: block;
-      }
-      &:hover p.main {
-        &::after {
-          width: 70%;
-        }
       }
     }
   }
@@ -770,6 +1010,9 @@ nav {
 
 .search_results {
   animation: searchResults 0.2s ease-in-out;
+}
+.mobile_search_results {
+  animation: mobileSearchResults 0.2s ease-in-out;
 }
 // For hide scrollbar
 .scrollbar-none {
@@ -798,6 +1041,36 @@ nav {
   100% {
     opacity: 1;
     transform: scale(1) translateY(0.75rem);
+  }
+}
+@keyframes mobileSearchResults {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 1.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    left: 90%;
+  }
+  100% {
+    opacity: 1;
+    left: 100%;
   }
 }
 </style>
