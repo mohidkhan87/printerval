@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <main>
+    <main class="font-roboto">
       <Container :padding="'px-4 2xl:px-10'">
         <!-- Poster -->
         <div class="my-4">
@@ -18,7 +18,7 @@
             >
               <img v-lazy="category.image" alt="category" class="w-full" />
               <button
-                class="absolute lg:block hidden top-3/4 left-1/2 transform -translate-x-1/2 rounded-full bg-white text-gray-800 shadow-lg border py-2 px-6"
+                class="absolute lg:block hidden top-3/4 left-1/2 transform -translate-x-1/2 rounded-full bg-white text-dark-purple font-medium shadow-lg border py-2 px-6"
               >
                 {{ category.name }}
               </button>
@@ -46,7 +46,7 @@
                     class="mr-2"
                   />
                   <span
-                    class="group-hover:text-orange font-medium sm:text-base text-sm transition-all ease-in-out duration-300"
+                    class="text-dark-purple group-hover:text-orange font-medium sm:text-base text-sm transition-all ease-in-out duration-300"
                     >{{ topic.title }}</span
                   >
                 </div>
@@ -224,7 +224,7 @@
                 v-for="(product, index) in topSale"
                 :key="index"
                 :class="index === viewTopSale && 'selected-sale'"
-                class="sale-products px-5 py-2 text-gray-700 cursor-pointer"
+                class="sale-products px-5 py-2 text-gray-700 font-medium cursor-pointer"
                 @click="viewTopSale = index"
               >
                 {{ product.name }}
@@ -290,10 +290,12 @@
               <div
                 class="flex flex-col lg:items-center items-start gap-1 lg:ml-0 ml-3"
               >
-                <h2 class="text-footer-purple font-medium">
+                <h2
+                  class="text-footer-purple hover:text-orange font-medium transition-all duration-300 ease-in-out cursor-pointer"
+                >
                   {{ service.title }}
                 </h2>
-                <p class="text-sm font-light lg:text-center h-10">
+                <p class="text-sm transform scale-95 lg:text-center h-10">
                   {{ service.detail }}
                 </p>
                 <p
@@ -1129,10 +1131,10 @@ export default {
     }
   }
   .selected-sale {
-    border-bottom: 3px solid #ff5724;
+    border-bottom: 3px solid #ff7300;
     z-index: 10;
     &:hover {
-      border-bottom: 3px solid #ff5724;
+      border-bottom: 3px solid #ff7300;
     }
   }
 }

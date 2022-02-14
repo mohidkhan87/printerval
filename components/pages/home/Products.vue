@@ -30,7 +30,7 @@
       <div class="flex w-full h-5 overflow-hidden">
         <h2
           :class="isSearching && 'group-hover:text-error'"
-          class="text-sm font-medium transition-all duration-300 ease-linear"
+          class="text-sm font-medium text-dark-purple transition-all duration-300 ease-linear"
         >
           {{ product.title }}
         </h2>
@@ -39,7 +39,11 @@
         >
       </div>
       <p v-if="!isSearching" class="font-light text-sm">
-        By {{ product.brand }}
+        By
+        <span
+          class="text-dark-purple hover:text-orange transition-all duration-200 ease-linear"
+          >{{ product.brand }}</span
+        >
       </p>
       <div
         v-if="product.discount"

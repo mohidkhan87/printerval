@@ -1,6 +1,6 @@
 <template>
-  <div class="border-b border-opacity-80 lg:pb-0 pb-5">
-    <div class="sm:block hidden bg-primary text-center text-sm p-3">
+  <div class="border-b border-opacity-80 font-roboto lg:pb-0 pb-5">
+    <div class="top-sale sm:block hidden bg-primary text-center text-sm p-3">
       <span class="text-orange">Valentine Day's Sale!</span> Save up to 45 % OFF
       sitewide. Gifts for any interest. Designed and sold by artists.
     </div>
@@ -34,7 +34,7 @@
             <input
               type="text"
               placeholder="Search designs and products"
-              class="w-full bg-transparent outline-none py-2.5 px-4"
+              class="w-full bg-transparent placeholder-gray-700 outline-none py-2.5 px-4"
             />
             <img
               src="@/assets/img/header/search.png"
@@ -51,29 +51,59 @@
                   Trending searches
                 </h2>
                 <div
-                  class="flex items-start gap-2 px-2 py-1 my-3 hover:bg-primary cursor-pointer"
+                  class="flex xl:flex-col flex-row xl:gap-x-0 gap-x-8 xl:gap-y-0 gap-y-2 flex-wrap xl:py-2 py-4"
                 >
-                  <img
-                    src="https://printerval.com/images/trend.svg"
-                    alt="result-icon"
-                    class="mt-1"
-                  />
-                  <span class="font-extralight leading-5">family</span>
-                </div>
-                <div
-                  class="flex items-start gap-2 px-2 py-1 my-3 hover:bg-primary cursor-pointer"
-                >
-                  <img
-                    src="https://printerval.com/images/trend.svg"
-                    alt="result-icon"
-                    class="mt-1"
-                  />
-                  <span class="font-extralight leading-5"
-                    >matching family disney shirts</span
+                  <div
+                    class="flex items-start gap-2 xl:px-2 px-0 py-1 xl:my-2.5 my-0 hover:bg-primary cursor-pointer"
                   >
+                    <img
+                      src="https://printerval.com/images/trend.svg"
+                      alt="result-icon"
+                      class="mt-1"
+                    />
+                    <span class="leading-5 text-gray-600 font-light"
+                      >family</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-start gap-2 xl:px-2 px-0 py-1 xl:my-2.5 my-0 hover:bg-primary cursor-pointer"
+                  >
+                    <img
+                      src="https://printerval.com/images/trend.svg"
+                      alt="result-icon"
+                      class="mt-1"
+                    />
+                    <span class="text-gray-600 font-light leading-5"
+                      >matching family disney shirts</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-start gap-2 xl:px-2 px-0 py-1 xl:my-2.5 my-0 hover:bg-primary cursor-pointer"
+                  >
+                    <img
+                      src="https://printerval.com/images/trend.svg"
+                      alt="result-icon"
+                      class="mt-1"
+                    />
+                    <span class="leading-5 text-gray-600 font-light"
+                      >family</span
+                    >
+                  </div>
+                  <div
+                    class="flex items-start gap-2 xl:px-2 px-0 py-1 xl:my-2.5 my-0 hover:bg-primary cursor-pointer"
+                  >
+                    <img
+                      src="https://printerval.com/images/trend.svg"
+                      alt="result-icon"
+                      class="mt-1"
+                    />
+                    <span class="text-gray-600 font-light leading-5"
+                      >matching family disney shirts</span
+                    >
+                  </div>
                 </div>
               </div>
-              <div class="lg:col-span-4 lg:pl-5 pl-0">
+              <div class="lg:col-span-4 xl:pl-5 pl-0">
                 <h2 class="font-medium text-gray-600">Popular products</h2>
                 <div
                   class="grid grid-flow-col lg:grid-rows-2 grid-rows-1 py-3 overflow-y-scroll scrollbar-none border-b"
@@ -380,7 +410,7 @@
                   @click="openSubMenu(index)"
                 >
                   <p
-                    class="py-2 px-4 transition-all duration-300 ease-in-out cursor-pointer group-hover:text-error"
+                    class="py-2 px-4 transition-all duration-300 ease-in-out cursor-pointer font-medium text-dark-purple group-hover:text-orange"
                   >
                     {{ list.name }}
                   </p>
@@ -401,7 +431,7 @@
 
               <li>
                 <p
-                  class="border-t text-red-700 py-2 px-4 transition-all duration-300 ease-in-out cursor-pointer"
+                  class="border-t text-maroon py-2 px-4 transition-all duration-300 ease-in-out font-medium cursor-pointer"
                 >
                   Top Sale
                 </p>
@@ -415,7 +445,9 @@
             class="mobile-nav lg:hidden block fixed top-0 left-0 h-full bg-white transform transition-all duration-300 ease-in-out z-50"
           >
             <div
-              class="flex items-center gap-2 bg-primary p-4 cursor-pointer"
+              v-if="mobileSubMenu"
+              :class="menu[mobileSubMenu].color"
+              class="flex items-center gap-2 p-4 cursor-pointer"
               @click="mobileSubMenu = null"
             >
               <div
@@ -428,7 +460,9 @@
                   class="h-px w-2.5 bg-black transform -rotate-45 -ml-0.5"
                 ></span>
               </div>
-              <h2 v-if="mobileSubMenu">{{ menu[mobileSubMenu].name }}</h2>
+              <h2 v-if="mobileSubMenu" class="font-medium text-white">
+                {{ menu[mobileSubMenu].name }}
+              </h2>
             </div>
             <!-- selected sub-menu -->
             <ul v-if="mobileSubMenu">
@@ -439,7 +473,7 @@
                 @click="openInnerSubMenu(id)"
               >
                 <p
-                  class="group-hover:text-orange transition-all duration-200 ease-linear"
+                  class="text-dark-purple group-hover:text-orange font-medium transition-all duration-200 ease-linear"
                 >
                   {{ child.name }}
                 </p>
@@ -462,7 +496,9 @@
             class="mobile-nav lg:hidden block fixed top-0 left-0 h-full bg-white transform transition-all duration-300 ease-in-out z-50"
           >
             <div
-              class="flex items-center gap-2 bg-primary p-4 cursor-pointer"
+              v-if="mobileSubMenu"
+              :class="menu[mobileSubMenu].color"
+              class="flex items-center gap-2 p-4 cursor-pointer"
               @click="mobileInnerSubMenu = null"
             >
               <div
@@ -475,7 +511,7 @@
                   class="h-px w-2.5 bg-black transform -rotate-45 -ml-0.5"
                 ></span>
               </div>
-              <h2 v-if="mobileInnerSubMenu">
+              <h2 v-if="mobileInnerSubMenu" class="font-medium text-white">
                 {{ menu[mobileSubMenu].subMenu[mobileInnerSubMenu].name }}
               </h2>
             </div>
@@ -486,7 +522,7 @@
                   mobileInnerSubMenu
                 ].subMenu"
                 :key="idx"
-                class="py-3 px-4 border-t hover:text-orange cursor-pointer transition-all duration-200 ease-linear"
+                class="text-dark-purple py-3 px-4 border-t hover:text-orange cursor-pointer transition-all duration-200 ease-linear"
               >
                 {{ main.name }}
               </li>
@@ -536,7 +572,7 @@
         </p>
       </div>
       <div
-        class="flex flex-col items-center"
+        class="flex flex-col items-center cursor-pointer"
         @click="openMobileSearch = !openMobileSearch"
       >
         <img src="@/assets/img/header/search.png" class="sm:h-7 h-5" />
@@ -604,7 +640,9 @@
                       alt="result-icon"
                       class="mt-0.5"
                     />
-                    <span class="font-extralight leading-5">family</span>
+                    <span class="text-gray-600 font-light leading-5"
+                      >family</span
+                    >
                   </div>
                   <div
                     class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
@@ -614,7 +652,7 @@
                       alt="result-icon"
                       class="mt-0.5"
                     />
-                    <span class="font-extralight leading-5"
+                    <span class="text-gray-600 font-light leading-5"
                       >matching family disney shirts</span
                     >
                   </div>
@@ -626,7 +664,7 @@
                       alt="result-icon"
                       class="mt-0.5"
                     />
-                    <span class="font-extralight leading-5"
+                    <span class="text-gray-600 font-light leading-5"
                       >matching family disney shirts</span
                     >
                   </div>
@@ -638,7 +676,9 @@
                       alt="result-icon"
                       class="mt-0.5"
                     />
-                    <span class="font-extralight leading-5">family</span>
+                    <span class="text-gray-600 font-light leading-5"
+                      >family</span
+                    >
                   </div>
                 </div>
               </div>
@@ -872,6 +912,7 @@ export default {
         id: 1,
         name: 'Home',
         subMenu: null,
+        color: 'bg-blue-500',
       },
       {
         id: 2,
@@ -898,6 +939,7 @@ export default {
           { id: 8, name: 'Sweatshirts', subMenu: null },
           { id: 9, name: 'Long Sleeves', subMenu: null },
         ],
+        color: 'bg-dark-purple',
       },
       {
         id: 3,
@@ -908,6 +950,7 @@ export default {
             name: 'All Accessories',
           },
         ],
+        color: 'bg-maroon',
       },
       {
         id: 4,
@@ -918,16 +961,19 @@ export default {
             name: 'Home & Living',
           },
         ],
+        color: 'bg-light-blue',
       },
       {
         id: 5,
         name: 'Topics',
         subMenu: null,
+        color: 'bg-footer-purple',
       },
       {
         id: 6,
         name: 'Shop',
         subMenu: null,
+        color: 'bg-light-blue',
       },
     ],
     // For Mobile menus
@@ -951,6 +997,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.top-sale {
+  font-family: arial;
+}
 .region {
   .region_list {
     display: none;

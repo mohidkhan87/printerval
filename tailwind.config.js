@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         // Overriding sans font family because sans is the default font family used by tailwind in its base css file
+        roboto: ["Roboto", "sans-serif"],
         arial: 'Arial, Helvetica, sans-serif',
         // poppins: ''
       },
@@ -12,14 +13,15 @@ module.exports = {
         primary: '#F2F2F6',
         'dark-purple': '#19134F',
         'footer-purple': '#07002F',
-        maroon: '#C52C29',
+        'maroon': '#C52C29',
         skin: '#FAEBD7',
         orange: '#FF7300',
         'light-purple': '#aa97d6',
         'light-blue': '#9FD8EB',
         'light-pink': '#EB91A6',
         'lightest-brown': '#DABAA1',
-        'lighter-gray': '#F5F5F5'
+        'lighter-gray': '#F5F5F5',
+        'light-greenish': '#7FFFD4'
       },
       boxShadow: {
         rounded: '0 0 20px 1px rgba(0, 0, 0, 0.13)',

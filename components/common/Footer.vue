@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-footer-purple pt-10 md:pb-10 pb-24">
+  <div class="bg-footer-purple font-roboto pt-10 md:pb-10 pb-24">
     <Container>
       <div class="grid md:grid-cols-6 grid-cols-1 gap-y-7 sm:px-5 px-0">
         <div class="lg:col-span-2 md:col-span-6 pt-3 lg:pr-16">
@@ -9,7 +9,7 @@
             alt="logo"
             class="lg:w-40 w-32"
           />
-          <p class="text-gray-300 mt-4 font-light text-sm">
+          <p class="text-gray-300 mt-4 text-sm">
             Printerval.com is your one-stop online shop for today's most daring,
             exciting and edgy fashion apparel. Our affordable collections are
             all about redefining trends, design excellence and exceptional
@@ -70,8 +70,10 @@
         </div>
         <div class="md:col-span-2">
           <h2 class="text-white">Information</h2>
-          <p class="mt-3 text-sm text-white font-light">
-            <span class="text-gray-300 font-normal">Email:</span>
+          <p
+            class="mt-3 text-sm text-white hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+          >
+            <span class="text-gray-300 font-medium">Email:</span>
             support@printerval.com
           </p>
           <div class="flex gap-2 mt-10">
@@ -107,32 +109,88 @@
           />
         </div>
         <div class="lg:col-span-1 md:col-span-2 lg:pr-2 lg:pl-0 md:pl-12">
-          <h2 class="text-white">Company</h2>
-          <ul class="flex flex-col gap-4 text-white text-sm font-light mt-8">
-            <li>About Us</li>
-            <li>Privacy Policy</li>
-            <li>Terms of Service</li>
-            <li>Contact Us</li>
-            <li>Sitemap</li>
-            <li>Blog</li>
-            <li>Sell your art</li>
+          <h2 class="text-white font-medium">Company</h2>
+          <ul class="flex flex-col gap-4 text-white text-sm mt-8">
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              About Us
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Privacy Policy
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Terms of Service
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Contact Us
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Sitemap
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Blog
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Sell your art
+            </li>
           </ul>
           <button
-            class="sm:btn-md btn-sm btn-success rounded capitalize lg:text-sm text-xs font-normal mt-6"
+            class="bg-light-greenish rounded capitalize lg:text-sm text-xs font-medium py-2 px-4 mt-6"
           >
             Open a support ticket
           </button>
         </div>
         <div class="lg:col-span-1 md:col-span-2 lg:pl-0 md:pl-12">
-          <h2 class="text-white">Get Help</h2>
-          <ul class="flex flex-col gap-4 text-white text-sm font-light mt-8">
-            <li>FAQ</li>
-            <li>Order Status</li>
-            <li>Shipping & Delivery</li>
-            <li>Cancel/Change Order</li>
-            <li>Refund & Exchange</li>
-            <li>DMCA</li>
-            <li>Intellectual Property Policy</li>
+          <h2 class="text-white font-medium">Get Help</h2>
+          <ul class="flex flex-col gap-4 text-white text-sm mt-8">
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              FAQ
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Order Status
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Shipping & Delivery
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Cancel/Change Order
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Refund & Exchange
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              DMCA
+            </li>
+            <li
+              class="hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
+            >
+              Intellectual Property Policy
+            </li>
           </ul>
         </div>
       </div>
@@ -141,7 +199,7 @@
     <Container>
       <div class="text-center">
         <!-- <h1 class="text-white font-medium text-lg">Read Our Reviews</h1> -->
-        <div class="font-thin text-white">
+        <div class="font-light text-white">
           © Printerval. All Rights Reserved
         </div>
       </div>
