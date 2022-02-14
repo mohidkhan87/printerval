@@ -16,7 +16,7 @@
             <div
               class="categories relative rounded overflow-hidden cursor-pointer"
             >
-              <img :src="category.image" alt="category" class="w-full" />
+              <img v-lazy="category.image" alt="category" class="w-full" />
               <button
                 class="absolute lg:block hidden top-3/4 left-1/2 transform -translate-x-1/2 rounded-full bg-white text-gray-800 shadow-lg border py-2 px-6"
               >
@@ -31,7 +31,7 @@
 
         <!-- Trending Topics -->
         <div class="2xl:w-10/12 w-full mx-auto">
-          <h1 class="text-gray-600 sm:text-2xl text-xl font-medium my-5">
+          <h1 class="text-gray-700 sm:text-2xl text-xl font-medium my-5">
             Trending Topics
           </h1>
           <div class="relative">
@@ -46,7 +46,7 @@
                     class="mr-2"
                   />
                   <span
-                    class="group-hover:text-error sm:text-base text-sm transition-all ease-in-out duration-300"
+                    class="group-hover:text-orange font-medium sm:text-base text-sm transition-all ease-in-out duration-300"
                     >{{ topic.title }}</span
                   >
                 </div>
@@ -83,7 +83,7 @@
 
         <!-- Trending Products -->
         <div class="2xl:w-10/12 w-full mx-auto">
-          <h1 class="text-gray-600 sm:text-2xl text-xl font-medium mt-5 mb-2">
+          <h1 class="text-gray-700 sm:text-2xl text-xl font-medium mt-5 mb-2">
             Trending Products
           </h1>
           <div class="relative mb-5">
@@ -127,7 +127,7 @@
 
         <!-- Featured Products -->
         <div class="2xl:w-10/12 w-full mx-auto">
-          <h1 class="text-gray-600 sm:text-2xl text-xl font-medium mt-5 mb-2">
+          <h1 class="text-gray-700 sm:text-2xl text-xl font-medium mt-5 mb-2">
             Featured Products
           </h1>
           <div class="relative mb-5">
@@ -171,7 +171,7 @@
 
         <!-- New Arrivals -->
         <div class="2xl:w-10/12 w-full mx-auto">
-          <h1 class="text-gray-600 sm:text-2xl text-xl font-medium mt-5 mb-2">
+          <h1 class="text-gray-700 sm:text-2xl text-xl font-medium mt-5 mb-2">
             New Arrivals
           </h1>
           <div class="relative mb-5">
@@ -215,7 +215,7 @@
 
         <!-- Top Sale OFF -->
         <div class="2xl:w-10/12 w-full mx-auto">
-          <h1 class="text-gray-600 sm:text-2xl text-xl font-medium mt-5 mb-2">
+          <h1 class="text-gray-700 sm:text-2xl text-xl font-medium mt-5 mb-2">
             Top Sale OFF
           </h1>
           <div class="w-full overflow-x-scroll scrollbar-none">
@@ -224,7 +224,7 @@
                 v-for="(product, index) in topSale"
                 :key="index"
                 :class="index === viewTopSale && 'selected-sale'"
-                class="sale-products px-5 py-2 text-gray-600 cursor-pointer"
+                class="sale-products px-5 py-2 text-gray-700 cursor-pointer"
                 @click="viewTopSale = index"
               >
                 {{ product.name }}
@@ -297,7 +297,7 @@
                   {{ service.detail }}
                 </p>
                 <p
-                  class="lg:block hidden text-footer-purple hover:text-error transition-all duration-300 ease-in-out font-medium cursor-pointer"
+                  class="lg:block hidden text-footer-purple hover:text-orange transition-all duration-300 ease-in-out font-medium cursor-pointer"
                 >
                   {{ service.action }}
                 </p>
@@ -323,7 +323,7 @@
               alt="news"
               class="sm:w-16 w-12"
             />
-            <h2 class="font-medium text-gray-600">
+            <h2 class="font-medium text-gray-700">
               Subscribe to our newsletter!
             </h2>
           </div>
@@ -483,14 +483,14 @@ export default {
         price: '30.85',
         discount: null,
         image:
-          'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2022/01/19/il-1140xn-b4ed5fb0d9896dcb1c8e32ae4f3d685b.webp',
+          'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-central/files/us/product/24-11-2021/619dbe4962acc-1637727817-619dbe4983af7.jpg',
       },
       {
         id: 3,
         title: '50th Anniversary Walt Disney World T-Shirts',
         brand: 'James Round',
         price: '20.85',
-        discount: '18.25',
+        discount: '58.25',
         image:
           'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2021/11/26/mickey-white-4cdda933db130ad3573eef2a25e4010c.jpg',
       },
@@ -501,14 +501,14 @@ export default {
         price: '30.85',
         discount: null,
         image:
-          'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2022/01/19/il-1140xn-b4ed5fb0d9896dcb1c8e32ae4f3d685b.webp',
+          'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-central/files/us/product/24-11-2021/619dbe4962acc-1637727817-619dbe4983af7.jpg',
       },
       {
         id: 5,
         title: '50th Anniversary Walt Disney World T-Shirts',
         brand: 'James Round',
         price: '20.85',
-        discount: '18.25',
+        discount: '68.25',
         image:
           'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2021/11/26/mickey-white-4cdda933db130ad3573eef2a25e4010c.jpg',
       },
@@ -517,9 +517,9 @@ export default {
         title: 'Custom 2022 Disney Birthday Family Matching T Shirt',
         brand: 'Josephine',
         price: '30.85',
-        discount: null,
+        discount: '60',
         image:
-          'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2022/01/19/il-1140xn-b4ed5fb0d9896dcb1c8e32ae4f3d685b.webp',
+          'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-central/files/us/product/24-11-2021/619dbe4962acc-1637727817-619dbe4983af7.jpg',
       },
       {
         id: 7,
@@ -535,7 +535,7 @@ export default {
         title: 'Custom 2022 Disney Birthday Family Matching T Shirt',
         brand: 'Josephine',
         price: '30.85',
-        discount: null,
+        discount: '70',
         image:
           'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2022/01/19/il-1140xn-b4ed5fb0d9896dcb1c8e32ae4f3d685b.webp',
       },
@@ -562,7 +562,7 @@ export default {
         title: '50th Anniversary Walt Disney World T-Shirts',
         brand: 'James Round',
         price: '20.85',
-        discount: '18.25',
+        discount: '78.25',
         image:
           'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2021/11/26/mickey-white-4cdda933db130ad3573eef2a25e4010c.jpg',
       },

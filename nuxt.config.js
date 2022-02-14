@@ -25,9 +25,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    // When use element-ui as plugin, remember setting ssr: true
     { src: '~/plugins/global-components.js', ssr: true },
-    { src: '~/plugins/vue-slick-carousel.js' }
+    { src: '~/plugins/vue-slick-carousel.js' },
+    { src: '~/plugins/vue-lazyload.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
