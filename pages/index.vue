@@ -10,6 +10,7 @@
 
         <!-- Categories -->
         <div
+        v-if="isLoaded"
           class="grid md:grid-cols-3 grid-cols-2 md:gap-3.5 gap-2 2xl:w-10/12 w-full my-4 mx-auto"
         >
           <div v-for="(category, index) in categories" :key="index">
@@ -208,7 +209,12 @@ export default {
         image: 'https://printerval.com/printerval/assets/images/support.svg',
       },
     ],
+
+    isLoaded: false
   }),
+  mounted(){ 
+    this.isLoaded = true
+  },
 }
 </script>
 

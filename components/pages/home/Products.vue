@@ -8,21 +8,21 @@
       <!-- discount tag -->
       <div
         v-if="product.discount && !isSearching"
-        class="absolute top-2 right-2 rounded-full md:h-12 h-10 md:w-12 w-10 bg-orange text-white flex justify-center items-center md:text-base text-sm"
+        class="absolute top-2 right-2 rounded-full md:h-12 h-10 md:w-12 w-10 bg-orange text-white flex justify-center items-center"
       >
-        <span class="w-min text-right md:text-sm text-xs leading-4">
+        <span class="w-min text-right md:text-sm text-xs md:leading-4 leading-3">
           {{ parseInt(product.discount) }}% OFF</span
         >
       </div>
       <!-- hot deal tag -->
       <div
         v-if="isTrending"
-        class="absolute top-2 left-2 transform -translate-x-2 -translate-y-8"
+        class="absolute top-2 left-2 transform -translate-x-2 md:-translate-y-8 -translate-y-7"
       >
         <img
           src="https://printerval.com/printerval/assets/images/hot-icon.png"
           alt="hot deal"
-          class="w-24"
+          class="md:w-24 w-20"
         />
       </div>
     </div>

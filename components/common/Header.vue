@@ -1,11 +1,11 @@
 <template>
-  <div class="border-b border-opacity-80 font-roboto lg:pb-0 pb-5">
+  <div class="border-b border-opacity-80 font-roboto lg:pb-0 md:pb-5 pb-2">
     <div class="top-sale md:block hidden bg-primary text-center text-sm p-3">
       <span class="text-orange">Valentine Day's Sale!</span> Save up to 45 % OFF
       sitewide. Gifts for any interest. Designed and sold by artists.
     </div>
     <Container>
-      <div class="pt-5">
+      <div class="md:pt-5 pt-2">
         <div class="flex justify-between items-center gap-5">
           <div class="flex gap-2 items-center flex-shrink-0">
             <div
@@ -137,6 +137,14 @@
             </div>
           </div>
           <div class="flex items-center sm:gap-3 gap-1.5 flex-shrink-0">
+            <div class="md:hidden cursor-pointer pr-2.5">
+              <img
+                src="@/assets/img/header/search.png"
+                alt="search"
+                class="sm:w-6 w-4"
+                @click="openMobileSearch = !openMobileSearch"
+             />
+            </div>
             <div
               class="region relative flex items-center justify-center h-full sm:p-2 p-1 z-20"
             >
