@@ -3,7 +3,7 @@
     <h1 class="text-gray-700 sm:text-2xl text-xl font-medium my-5">
       Trending Topics
     </h1>
-    <div class="relative">
+    <div class="relative md:h-12 h-12 overflow-hidden">
       <VueSlickCarousel ref="trendingTopicsSlider" v-bind="topicOptions">
         <div v-for="(topic, index) in trendingTopics" :key="index">
           <div
@@ -22,7 +22,7 @@
         </div>
       </VueSlickCarousel>
       <button
-        class="absolute border sm:flex hidden justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
+        class="absolute border md:flex hidden justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
         @click="$refs.trendingTopicsSlider.next()"
       >
         <div class="flex transform -rotate-90">
@@ -31,7 +31,7 @@
         </div>
       </button>
       <button
-        class="absolute border sm:flex hidden justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
+        class="absolute border md:flex hidden justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
         @click="$refs.trendingTopicsSlider.prev()"
       >
         <div class="flex transform rotate-90">
