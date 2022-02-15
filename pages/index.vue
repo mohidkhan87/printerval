@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <main class="font-roboto">
       <Container :padding="'px-4 2xl:px-10'">
         <!-- Poster -->
@@ -126,28 +125,24 @@
         </div>
       </Container>
     </main>
-    <Footer />
   </div>
 </template>
 
 <script>
-import Header from '@/components/common/Header.vue'
 import TrendingTopics from '@/components/pages/home/TrendingTopics.vue'
 import TrendingProducts from '@/components/pages/home/TrendingProducts.vue'
 import FeaturedProducts from '@/components/pages/home/FeaturedProducts.vue'
 import NewArrivals from '@/components/pages/home/NewArrivals.vue'
 import TopSale from '@/components/pages/home/TopSale.vue'
-import Footer from '@/components/common/Footer.vue'
 
 export default {
   components: {
-    Header,
+  
     TrendingTopics,
     TrendingProducts,
     FeaturedProducts,
     NewArrivals,
     TopSale,
-    Footer,
   },
   data: () => ({
     categories: [

@@ -4,6 +4,9 @@
       <span class="text-orange">Valentine Day's Sale!</span> Save up to 45 % OFF
       sitewide. Gifts for any interest. Designed and sold by artists.
     </div>
+    <div class="top-sale md:hidden block bg-white text-orange text-center text-sm overflow-x-scroll scrollbar-none pt-2 px-3">
+      <span class="w-max flex justify-center mx-auto">Valentine Day's Sale! Save up to 45 % OFF sitewide...</span>
+    </div>
     <Container>
       <div class="md:pt-5 pt-2">
         <div class="flex justify-between items-center gap-5">
@@ -544,48 +547,48 @@
     <div
       class="md:hidden grid grid-cols-5 bg-white fixed bottom-0 left-0 w-full shadow-rounded pt-3 pb-2 z-20"
     >
-      <div class="flex flex-col items-center">
-        <img src="@/assets/img/header/home.png" class="sm:h-7 h-5" />
+      <div class="bottom-nav group flex flex-col items-center cursor-pointer">
+        <img src="@/assets/img/header/home.png" class="sm:h-7 h-5 transition-all duration-200 ease-linear" />
         <p
-          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+          class="mt-1.5 sm:text-sm text-xs group-hover:text-orange transition-all duration-200 ease-linear transform sm:scale-100 scale-90 uppercase"
         >
           Home
         </p>
       </div>
-      <div class="flex flex-col items-center">
-        <img src="@/assets/img/header/cart.png" class="sm:h-7 h-5" />
+      <div class="bottom-nav group flex flex-col items-center cursor-pointer">
+        <img src="@/assets/img/header/cart.png" class="sm:h-7 h-5 transition-all duration-200 ease-linear" />
         <p
-          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+          class="mt-1.5 sm:text-sm text-xs group-hover:text-orange transition-all duration-200 ease-linear transform sm:scale-100 scale-90 uppercase"
         >
           My Cart
         </p>
       </div>
-      <div class="flex flex-col items-center">
+      <div class="bottom-nav group flex flex-col items-center cursor-pointer">
         <img
           src="@/assets/img/header/product.png"
-          class="sm:h-7 h-5 transform -rotate-90"
+          class="sm:h-7 h-5 transform -rotate-90 transition-all duration-200 ease-linear"
         />
         <p
-          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+          class="mt-1.5 sm:text-sm text-xs group-hover:text-orange transition-all duration-200 ease-linear transform sm:scale-100 scale-90 uppercase"
         >
           Products
         </p>
       </div>
-      <div class="flex flex-col items-center">
-        <img src="@/assets/img/header/heart.png" class="sm:h-7 h-5" />
+      <div class="bottom-nav group flex flex-col items-center cursor-pointer">
+        <img src="@/assets/img/header/heart.png" class="sm:h-7 h-5 transition-all duration-200 ease-linear" />
         <p
-          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+          class="mt-1.5 sm:text-sm text-xs group-hover:text-orange transition-all duration-200 ease-linear transform sm:scale-100 scale-90 uppercase"
         >
           Wishlist
         </p>
       </div>
       <div
-        class="flex flex-col items-center cursor-pointer"
+        class="bottom-nav group flex flex-col items-center cursor-pointer"
         @click="openMobileSearch = !openMobileSearch"
       >
-        <img src="@/assets/img/header/search.png" class="sm:h-7 h-5" />
+        <img src="@/assets/img/header/search.png" class="sm:h-7 h-5 transition-all duration-200 ease-linear" />
         <p
-          class="mt-1.5 sm:text-sm text-xs transform sm:scale-100 scale-90 uppercase"
+          class="mt-1.5 sm:text-sm text-xs group-hover:text-orange transition-all duration-200 ease-linear transform sm:scale-100 scale-90 uppercase"
         >
           Search
         </p>
@@ -1077,6 +1080,11 @@ nav {
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+.bottom-nav {
+  &:hover img {
+  filter: invert(61%) sepia(48%) saturate(6410%) hue-rotate(1deg) brightness(103%) contrast(105%);
   }
 }
 
