@@ -1,6 +1,6 @@
 <template>
   <div class="border-b border-opacity-80 font-roboto lg:pb-0 pb-5">
-    <div class="top-sale sm:block hidden bg-primary text-center text-sm p-3">
+    <div class="top-sale md:block hidden bg-primary text-center text-sm p-3">
       <span class="text-orange">Valentine Day's Sale!</span> Save up to 45 % OFF
       sitewide. Gifts for any interest. Designed and sold by artists.
     </div>
@@ -51,10 +51,10 @@
                   Trending searches
                 </h2>
                 <div
-                  class="flex xl:flex-col flex-row xl:gap-x-0 gap-x-8 xl:gap-y-0 gap-y-2 flex-wrap xl:py-2 py-4"
+                  class="flex xl:flex-col flex-row xl:gap-x-0 gap-x-4 xl:gap-y-0 gap-y-1 flex-wrap py-4"
                 >
                   <div
-                    class="flex items-start gap-2 xl:px-2 px-0 py-1 xl:my-2.5 my-0 hover:bg-primary cursor-pointer"
+                    class="flex items-start gap-2 px-3 py-1.5 xl:my-1 my-0 hover:bg-lighter-gray cursor-pointer rounded-sm"
                   >
                     <img
                       src="https://printerval.com/images/trend.svg"
@@ -66,7 +66,7 @@
                     >
                   </div>
                   <div
-                    class="flex items-start gap-2 xl:px-2 px-0 py-1 xl:my-2.5 my-0 hover:bg-primary cursor-pointer"
+                    class="flex items-start gap-2 px-3 py-1.5 xl:my-2 my-0 hover:bg-lighter-gray cursor-pointer"
                   >
                     <img
                       src="https://printerval.com/images/trend.svg"
@@ -78,7 +78,7 @@
                     >
                   </div>
                   <div
-                    class="flex items-start gap-2 xl:px-2 px-0 py-1 xl:my-2.5 my-0 hover:bg-primary cursor-pointer"
+                    class="flex items-start gap-2 px-3 py-1.5 xl:my-2 my-0 hover:bg-lighter-gray cursor-pointer"
                   >
                     <img
                       src="https://printerval.com/images/trend.svg"
@@ -90,7 +90,7 @@
                     >
                   </div>
                   <div
-                    class="flex items-start gap-2 xl:px-2 px-0 py-1 xl:my-2.5 my-0 hover:bg-primary cursor-pointer"
+                    class="flex items-start gap-2 px-3 py-1.5 xl:my-2 my-0 hover:bg-lighter-gray cursor-pointer"
                   >
                     <img
                       src="https://printerval.com/images/trend.svg"
@@ -613,7 +613,7 @@
             </div>
             <!-- x icon -->
             <div
-              class="flex-shrink-0 flex justify-center items-center cursor-pointer"
+              class="flex justify-center items-center cursor-pointer  h-5 w-5 rounded-full flex-shrink-0"
               @click="openMobileSearch = !openMobileSearch"
             >
               <span
@@ -631,9 +631,9 @@
                 <h2 class="font-medium text-gray-600 leading-5">
                   Trending searches
                 </h2>
-                <div class="flex items-center gap-x-8 gap-y-1 my-3 flex-wrap">
+                <div class="flex items-center gap-x-3 gap-y-1 my-3 flex-wrap">
                   <div
-                    class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
+                    class="flex items-start gap-2 px-3 py-1.5 hover:bg-lighter-gray cursor-pointer"
                   >
                     <img
                       src="https://printerval.com/images/trend.svg"
@@ -645,7 +645,7 @@
                     >
                   </div>
                   <div
-                    class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
+                    class="flex items-start gap-2 px-3 py-1.5 hover:bg-lighter-gray cursor-pointer"
                   >
                     <img
                       src="https://printerval.com/images/trend.svg"
@@ -657,7 +657,7 @@
                     >
                   </div>
                   <div
-                    class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
+                    class="flex items-start gap-2 px-3 py-1.5 hover:bg-lighter-gray cursor-pointer"
                   >
                     <img
                       src="https://printerval.com/images/trend.svg"
@@ -669,7 +669,7 @@
                     >
                   </div>
                   <div
-                    class="flex items-start gap-2 py-1 hover:bg-primary cursor-pointer"
+                    class="flex items-start gap-2 px-3 py-1.5 hover:bg-lighter-gray cursor-pointer"
                   >
                     <img
                       src="https://printerval.com/images/trend.svg"

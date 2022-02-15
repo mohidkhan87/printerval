@@ -7,16 +7,16 @@
       <img id="product-image" v-lazy="product.image" alt="" />
       <!-- discount tag -->
       <div
-        v-if="product.discount && product.discount < 50 && !isSearching"
-        class="absolute top-2 right-2 rounded-full h-12 w-12 bg-orange text-white flex justify-center items-center"
+        v-if="product.discount && !isSearching"
+        class="absolute top-2 right-2 rounded-full md:h-12 h-10 md:w-12 w-10 bg-orange text-white flex justify-center items-center md:text-base text-sm"
       >
-        <span class="w-min text-right text-sm leading-4">
+        <span class="w-min text-right md:text-sm text-xs leading-4">
           {{ parseInt(product.discount) }}% OFF</span
         >
       </div>
       <!-- hot deal tag -->
       <div
-        v-else-if="!isSearching"
+        v-if="isTrending"
         class="absolute top-2 left-2 transform -translate-x-2 -translate-y-8"
       >
         <img
@@ -70,6 +70,10 @@ export default {
       default: () => {},
     },
     isSearching: {
+      type: Boolean,
+      default: false,
+    },
+    isTrending: {
       type: Boolean,
       default: false,
     },
