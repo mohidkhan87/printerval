@@ -15,7 +15,7 @@
             all about redefining trends, design excellence and exceptional
             quality to satisfy the needs of every aspiring fashionista.
           </p>
-          <p class="text-gray-300 my-4 font-light text-sm">Follow us:</p>
+          <p class="text-gray-300 my-4 text-sm">Follow us:</p>
           <div class="flex items-center gap-1">
             <a href="">
               <img
@@ -69,7 +69,7 @@
           </div>
         </div>
         <div class="md:col-span-2">
-          <h2 class="text-white">Information</h2>
+          <h2 class="text-white font-medium">Information</h2>
           <p
             class="mt-3 text-sm text-white hover:text-light-purple transition-all duration-200 ease-linear cursor-pointer"
           >

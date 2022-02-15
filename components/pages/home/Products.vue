@@ -38,7 +38,7 @@
           >...</span
         >
       </div>
-      <p v-if="!isSearching" class="font-light text-sm">
+      <p v-if="!isSearching" class="text-sm">
         By
         <span
           class="text-dark-purple hover:text-orange transition-all duration-200 ease-linear"

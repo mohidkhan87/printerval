@@ -97,7 +97,7 @@
               </div>
             </VueSlickCarousel>
             <button
-              class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md"
+              class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md -mt-4"
               @click="$refs.trendingProducts.next()"
             >
               <div class="flex transform -rotate-90">
@@ -110,7 +110,7 @@
               </div>
             </button>
             <button
-              class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
+              class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white -mt-4"
               @click="$refs.trendingProducts.prev()"
             >
               <div class="flex transform rotate-90">
@@ -141,7 +141,7 @@
               </div>
             </VueSlickCarousel>
             <button
-              class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md"
+              class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md -mt-4"
               @click="$refs.featuredProducts.next()"
             >
               <div class="flex transform -rotate-90">
@@ -154,7 +154,7 @@
               </div>
             </button>
             <button
-              class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
+              class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white -mt-4"
               @click="$refs.featuredProducts.prev()"
             >
               <div class="flex transform rotate-90">
@@ -185,7 +185,7 @@
               </div>
             </VueSlickCarousel>
             <button
-              class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md"
+              class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md -mt-4"
               @click="$refs.newArrivals.next()"
             >
               <div class="flex transform -rotate-90">
@@ -198,7 +198,7 @@
               </div>
             </button>
             <button
-              class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
+              class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white -mt-4"
               @click="$refs.newArrivals.prev()"
             >
               <div class="flex transform rotate-90">
@@ -244,7 +244,7 @@
                   </div>
                 </VueSlickCarousel>
                 <button
-                  class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md"
+                  class="absolute border flex justify-center items-center top-1/2 right-2 transform -translate-y-1/2 h-10 w-10 rounded-full bg-white shadow-md -mb-2"
                   @click="$refs[viewTopSale][0].next()"
                 >
                   <div class="flex transform -rotate-90">
@@ -257,7 +257,7 @@
                   </div>
                 </button>
                 <button
-                  class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white"
+                  class="absolute border flex justify-center items-center top-1/2 left-2 transform -translate-y-1/2 h-10 w-10 shadow-md rounded-full bg-white -mb-2"
                   @click="$refs[viewTopSale][0].prev()"
                 >
                   <div class="flex transform rotate-90">
