@@ -5,7 +5,8 @@
       <Container :padding="'px-4 2xl:px-10'">
         <!-- Poster -->
         <div class="my-4">
-          <div class="poster bg-poster bg-cover bg-center"></div>
+          <div  v-if="isLoaded" class="poster bg-poster bg-cover bg-center"></div>
+          <div v-else class="poster-skeleton w-full bg-gray-100 "></div>
         </div>
 
         <!-- Categories -->
@@ -27,6 +28,16 @@
             <p class="lg:hidden block text-center sm:text-base text-sm my-2">
               {{ category.name }}
             </p>
+          </div>
+        </div>
+
+        <div
+        v-else
+          class="grid md:grid-cols-3 grid-cols-2 md:gap-3.5 gap-2 2xl:w-10/12 w-full my-4 mx-auto"
+        >
+          <div v-for="(category, index) in categories" :key="index" class="category-skeleton w-full bg-gray-100 rounded">
+            
+           
           </div>
         </div>
 
@@ -223,6 +234,11 @@ export default {
   height: calc(100vw / 2);
   max-height: 25.5rem;
 }
+
+.poster-skeleton {
+  height: 400px;
+}
+
 .categories {
   img {
     transition: all 0.3s ease-in-out;
@@ -230,6 +246,9 @@ export default {
   &:hover img {
     transform: scale(1.25);
   }
+}
+.category-skeleton {
+  height: 300px;
 }
 
 // For hide scrollbar
@@ -239,5 +258,23 @@ export default {
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+@media screen and (max-width: 1280px) {
+  .poster-skeleton {
+  height: calc(100vw / 3);
+}
+  .category-skeleton {
+  height: 30vw;
+}
+}
+
+@media screen and (max-width: 767px) {
+  .poster-skeleton {
+  height: 55vw;
+}
+  .category-skeleton {
+  height: 40vw;
+}
 }
 </style>
