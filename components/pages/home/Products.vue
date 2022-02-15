@@ -17,12 +17,12 @@
       <!-- hot deal tag -->
       <div
         v-if="isTrending"
-        class="absolute top-2 left-2 transform -translate-x-2 -translate-y-8"
+        class="absolute top-2 left-2 transform -translate-x-2 md:-translate-y-8 -translate-y-7"
       >
         <img
           src="https://printerval.com/printerval/assets/images/hot-icon.png"
           alt="hot deal"
-          class="w-24"
+          class="md:w-24 w-20"
         />
       </div>
     </div>
