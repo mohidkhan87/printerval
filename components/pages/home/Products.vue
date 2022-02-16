@@ -1,5 +1,6 @@
 <template>
   <div
+  v-if="isLoaded"
     :class="!isSearching && 'product_effect rounded'"
     class="group transition-all duration-300 ease-linear cursor-pointer mx-1 overflow-hidden"
   >
@@ -60,6 +61,8 @@
       </p>
     </div>
   </div>
+    
+ 
 </template>
 
 <script>
@@ -78,6 +81,12 @@ export default {
       default: false,
     },
   },
+  data: () => ({
+    isLoaded: false
+  }),
+  mounted(){
+    this.isLoaded = true
+  }
 }
 </script>
 
@@ -93,4 +102,8 @@ export default {
     }
   }
 }
+
+
+
+
 </style>
