@@ -120,14 +120,6 @@ export default {
 
   }
 }
-// For hide scrollbar
-.scrollbar-none {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
 
 @keyframes gradient {
   0%{

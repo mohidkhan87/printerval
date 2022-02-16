@@ -31,10 +31,7 @@
           </div>
         </div>
         <!-- Category skeleton -->
-        <div
-        v-else
-          class="grid md:grid-cols-3 grid-cols-2 md:gap-3.5 gap-2 2xl:w-10/12 w-full my-4 mx-auto"
-        >
+        <div v-else class="grid md:grid-cols-3 grid-cols-2 md:gap-3.5 gap-2 2xl:w-10/12 w-full my-4 mx-auto">
           <div v-for="(category, index) in categories" :key="index" class="category-skeleton skeleton w-full bg-gray-100 rounded">
           </div>
         </div>
@@ -259,15 +256,6 @@ export default {
     background: linear-gradient(to right, #F3F4F6, rgb(250, 253, 255), #F3F4F6 );
     animation: gradient .9s infinite;
 
-  }
-}
-
-// For hide scrollbar
-.scrollbar-none {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
   }
 }
 

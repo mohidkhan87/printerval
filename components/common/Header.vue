@@ -1074,14 +1074,7 @@ nav {
 .mobile_search_results {
   animation: mobileSearchResults 0.2s ease-in-out;
 }
-// For hide scrollbar
-.scrollbar-none {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
+
 .bottom-nav {
   &:hover img {
   filter: invert(61%) sepia(48%) saturate(6410%) hue-rotate(1deg) brightness(103%) contrast(105%);

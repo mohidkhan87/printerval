@@ -29,7 +29,7 @@
       </button>
     </div>
     <div v-else class="grid grid-flow-col grid-rows-2 gap-3 overflow-x-scroll scrollbar-none">
-      <div v-for="i in 20" :key="i" class="trending-product-skeleton bg-gray-100 rounded"></div>
+      <div v-for="i in 20" :key="i" class="product-skeleton bg-gray-100 rounded"></div>
     </div>
   </div>
 </template>
@@ -223,59 +223,5 @@ export default {
 </script>
 
 <style lang="scss">
-.trending-product-skeleton {
-  position: relative;
-  height: 240px;
-  width: 230px;
-  overflow: hidden;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 30%;
-    background: linear-gradient(to right, #F3F4F6, rgb(250, 253, 255), #F3F4F6 );
-    animation: gradient .9s infinite;
 
-  }
-}
-@keyframes gradient {
-  0%{
-    transform: translateX(-20%)
-  }
-  100%{
-    transform: translateX(330%)
-  }
-}
-
-// For hide scrollbar
-.scrollbar-none {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-
-@media screen and (max-width: 1279px) {
-  .trending-product-skeleton {
-    height: 15vw;
-    width: 15vw;
-  }
-}
-@media screen and (max-width: 1023px) {
-  .trending-product-skeleton {
-    height: 23vw;
-    width: 23vw;
-  }
-}
-@media screen and (max-width: 640px) {
-  .trending-product-skeleton {
-    height: 40vw;
-    width: 40vw;
-  }
-  
-}
 </style>
