@@ -3,7 +3,7 @@
     <h1 class="text-gray-700 sm:text-2xl text-xl font-medium mt-5 mb-2">
       Trending Products
     </h1>
-    <div class="relative mb-5">
+    <div v-if="isLoaded" class="relative mb-5">
       <VueSlickCarousel ref="trendingProducts" v-bind="productsOptions">
         <div v-for="(product, idx) in trendingProducts" :key="idx" class="mt-5">
           <Products :product="product" :is-trending="true" />
@@ -27,6 +27,9 @@
           <span class="h-px w-2.5 bg-black transform -rotate-45 -ml-0.5"></span>
         </div>
       </button>
+    </div>
+    <div v-else class="grid grid-flow-col grid-rows-2 gap-3 overflow-x-scroll scrollbar-none">
+      <div v-for="i in 20" :key="i" class="trending-product-skeleton bg-gray-100 rounded"></div>
     </div>
   </div>
 </template>
@@ -211,8 +214,68 @@ export default {
           'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2022/01/19/il-1140xn-b4ed5fb0d9896dcb1c8e32ae4f3d685b.webp',
       },
     ],
+    isLoaded: false
   }),
+  mounted(){
+    this.isLoaded = true
+  }
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.trending-product-skeleton {
+  position: relative;
+  height: 240px;
+  width: 230px;
+  overflow: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(to right, #F3F4F6, rgb(250, 253, 255), #F3F4F6 );
+    animation: gradient .9s infinite;
+
+  }
+}
+@keyframes gradient {
+  0%{
+    transform: translateX(-20%)
+  }
+  100%{
+    transform: translateX(330%)
+  }
+}
+
+// For hide scrollbar
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 1279px) {
+  .trending-product-skeleton {
+    height: 15vw;
+    width: 15vw;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .trending-product-skeleton {
+    height: 23vw;
+    width: 23vw;
+  }
+}
+@media screen and (max-width: 640px) {
+  .trending-product-skeleton {
+    height: 40vw;
+    width: 40vw;
+  }
+  
+}
+</style>

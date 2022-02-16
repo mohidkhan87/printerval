@@ -3,7 +3,7 @@
     <h1 class="text-gray-700 sm:text-2xl text-xl font-medium my-5">
       Trending Topics
     </h1>
-    <div class="relative md:h-12 h-12 overflow-hidden">
+    <div v-if="isLoaded" class="relative">
       <VueSlickCarousel ref="trendingTopicsSlider" v-bind="topicOptions">
         <div v-for="(topic, index) in trendingTopics" :key="index">
           <div
@@ -40,6 +40,9 @@
         </div>
       </button>
     </div>
+    <div v-else class="grid grid-flow-col grid-rows-1 gap-3 overflow-x-scroll scrollbar-none">
+      <div v-for="i in 15" :key="i" class="skeleton w-32 md:h-12 h-10 bg-gray-100 rounded"></div>
+    </div>
   </div>
 </template>
 
@@ -53,7 +56,6 @@ export default {
       variableWidth: true,
       swipe: true,
     },
-
     // page data
     trendingTopics: [
       {
@@ -93,9 +95,46 @@ export default {
         title: 'Disney Vacation',
       },
     ],
+    isLoaded: false
   }),
+  mounted(){
+    this.isLoaded = true
+  }
+  
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background: linear-gradient(to right, #F3F4F6, rgb(250, 253, 255), #F3F4F6 );
+    animation: gradient .9s infinite;
+
+  }
+}
+// For hide scrollbar
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes gradient {
+  0%{
+    transform: translateX(-20%)
+  }
+  100%{
+    transform: translateX(330%)
+  }
+}
 </style>
