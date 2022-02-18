@@ -76,7 +76,7 @@ export default {
         price: '20.85',
         discount: null,
         image:
-          'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-us/2021/11/26/mickey-white-4cdda933db130ad3573eef2a25e4010c.jpg',
+          'https://images.exshoptee.top/api/images/design-common/ME-813dgs0RCXL/5-521123-215B125B481B437-FRONT/large.jpg',
       },
       {
         id: 2,
@@ -85,7 +85,7 @@ export default {
         price: '30.85',
         discount: null,
         image:
-          'https://uscdn.printerval.com/unsafe/fit-in/630x630/filters:fill(fff)/storage.googleapis.com/printerval-central/files/us/product/24-11-2021/619dbe4962acc-1637727817-619dbe4983af7.jpg',
+          'https://supimg.nyc3.digitaloceanspaces.com/1bbe773ce45f98ddd96e08373df65dc3.jpg',
       },
       {
         id: 3,

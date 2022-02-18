@@ -4,8 +4,8 @@
     :class="!isSearching && 'product_effect rounded'"
     class="group transition-all duration-300 ease-linear cursor-pointer mx-1 overflow-hidden"
   >
-    <div class="relative overflow-hidden">
-      <img id="product-image" v-lazy="product.image" alt="" />
+    <div class="relative overflow-hidden h-64">
+      <img id="product-image" v-lazy="product.image" class="w-full h-full" alt="" />
       <!-- discount tag -->
       <div
         v-if="product.discount && !isSearching"
